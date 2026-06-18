@@ -8,7 +8,7 @@ const yauzl = require("yauzl");
 
 const packageJSON = require("../package.json");
 
-const supportedPlatforms = ["linux", "darwin", "win32", "freebsd", "windows"];
+const supportedPlatforms = ["linux", "darwin", "win32", "freebsd", "windows", "android"];
 const outputDir = "bin";
 
 const getPlatform = () => {
@@ -16,6 +16,10 @@ const getPlatform = () => {
 
   if (platform === "win32") {
     platform = "windows";
+  }
+
+  if (platform === "android") {
+    platform = "linux";
   }
 
   if (!supportedPlatforms.includes(platform)) {
